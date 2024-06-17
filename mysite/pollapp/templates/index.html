@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Prueba de Lenguajes de Programación Favoritos</h1>
+
+    <form method="post" action="{% url 'procesar_votos' %}">
+        {% csrf_token %}
+        <h2>Selecciona tus lenguajes favoritos:</h2>
+        <div class="lenguajes">
+            {% for lenguaje in lenguajes %}
+                <div class="lenguaje_col">
+                    <label for="{{ lenguaje }}">{{ lenguaje.nombre }}</label>
+                    <input type="checkbox" id="{{ lenguaje }}" name="lenguajes" value="{{ lenguaje.id }}">
+                </div>
+                
+            {% endfor %}
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Resultados:</h2>
+    <table id="tabla-resultados">
+        <thead>
+            <tr>
+                <th>Lenguaje</th>
+                <th>Votos</th>
+                <th>Porcentaje</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                {% for lenguaje in lenguajes %}
+                <tr>
+                <td>{{lenguaje.nombre}}</td>
+                <td>{{lenguaje.votos}}</td>
+                <td>{{lenguaje.porcentaje|floatformat:3}}%</td>
+            </tr>
+                {% endfor %}
+            
+            
+        </tbody>
+    </table>
+{% endblock %}

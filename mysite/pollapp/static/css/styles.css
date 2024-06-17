@@ -1,0 +1,29 @@
+
+
+/* Estilos generales de la página */
+body {
+    font-family: sans-serif;
+    background-color: azure;
+}
+
+.lenguajes {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    
+}
+
+.lenguajes label {
+    margin-right: 10px;
+    color: blue;
+    
+}
+
+.lenguaje_col{
+    border-radius:2px;
+    border: 2px black solid;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0.5em;
+}
+
